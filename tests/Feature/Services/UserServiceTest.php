@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Servicec;
+namespace Tests\Feature\Services;
 
 use App\Http\Requests\UserAddAdminRequest;
 use App\Http\Requests\UserAddCustomerRequest;
@@ -10,7 +10,6 @@ use App\Http\Requests\UserUpdateRequest;
 use App\Models\User;
 use App\Services\UserService;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Hash;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
