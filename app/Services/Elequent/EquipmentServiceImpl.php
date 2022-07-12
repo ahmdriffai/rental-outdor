@@ -58,10 +58,9 @@ class EquipmentServiceImpl implements EquipmentService
         $price = $request->input('price');
         $description = $request->input('description');
 
-        $category = Category::find($request->input('category_id'));
-
         try {
             DB::beginTransaction();
+            $category = Category::findOrFail($request->input('category_id'));
             $equipment = Equipment::findOrFail($id);
             $equipment->name = $name;
             $equipment->price = $price;
@@ -82,6 +81,7 @@ class EquipmentServiceImpl implements EquipmentService
     {
         try {
             $equpment = Equipment::findOrFail($id);
+
             if ($equpment->image_path != null) {
                 unlink($equpment->image_path);
             }
@@ -94,9 +94,13 @@ class EquipmentServiceImpl implements EquipmentService
 
     function addImage($file, int $id): Equipment
     {
-        $equipment = Equipment::find($id);
+
+        if ($file == null) {
+            throw new InvariantException('Belum ada file');
+        }
 
         try {
+            $equipment = Equipment::findOrFail($id);
             $dataFile = $this->uploads($file, 'equipment/images/');
             $imageUrl = asset('storage/'. $dataFile['filePath']);
             $imagePath = public_path('storage/'. $dataFile['filePath']);
@@ -113,9 +117,13 @@ class EquipmentServiceImpl implements EquipmentService
 
     function updateImage($file, int $id): Equipment
     {
-        $equipment = Equipment::findOrFail($id);
+
+        if ($file == null) {
+            throw new InvariantException('Belum ada file');
+        }
 
         try {
+            $equipment = Equipment::findOrFail($id);
             if ($equipment->image_path != null) {
                 unlink($equipment->image_path);
             }

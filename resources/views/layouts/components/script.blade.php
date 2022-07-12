@@ -7,4 +7,7 @@
 <script src="{{asset('sb-admin/vendor/jquery-easing/jquery.easing.min.js')}}"></script>
 
 <!-- Custom scripts for all pages-->
-<script src="{{asset('sb-admin/js/sb-admin-2.min.js')}}"></script><?php
+<script src="{{asset('sb-admin/js/sb-admin-2.min.js')}}"></script>
+
+<!-- Sweet Alret. -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>

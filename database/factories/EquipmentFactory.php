@@ -18,7 +18,7 @@ class EquipmentFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->title(),
+            'name' => $this->faker->name(),
             'price' => 50000,
             'description' => $this->faker->text(),
             'image_path' => null,

@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function () {
+    Route::resource('equipment', \App\Http\Controllers\EquipmentController::class)
+        ->only('index', 'create', 'store', 'destroy', 'edit', 'update');
+    Route::put('/equipment/{id}/change-image', [\App\Http\Controllers\EquipmentController::class, 'changeImage'])
+        ->name('equipment.change-image');
+});

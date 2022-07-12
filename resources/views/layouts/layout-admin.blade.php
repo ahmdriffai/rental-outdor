@@ -3,6 +3,8 @@
 
 <head>
     @include('layouts.components.head')
+    @yield('style')
+
 </head>
 
 <body id="page-top">
@@ -29,6 +31,7 @@
 
                 <!-- Page Heading -->
                 <h1 class="h3 mb-4 text-gray-800">{{ $title ?? 'Title' }}</h1>
+                @include('layouts.components.validation')
 
                 @yield('content')
 
@@ -54,7 +57,8 @@
 @include('layouts.components.logout-modal')
 
 @include('layouts.components.script')
-
+@yield('script')
+@include('layouts.components.alert')
 </body>
 
 </html>

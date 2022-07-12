@@ -6,8 +6,8 @@
 </li>
 
 <!-- Nav Item - Tables -->
-<li class="nav-item">
-    <a class="nav-link" href="tables.html">
+<li class="nav-item {{ Route::is('equipment.*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('equipment.index') }}">
         <i class="fas fa-fw fa-table"></i>
-        <span>Menu 1</span></a>
+        <span>Peralatan</span></a>
 </li>
