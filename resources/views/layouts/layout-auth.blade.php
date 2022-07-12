@@ -5,7 +5,7 @@
     @include('layouts.components.head')
 </head>
 
-<body class="bg-gradient-primary">
+<body class="bg-light">
 
 <div class="container">
 

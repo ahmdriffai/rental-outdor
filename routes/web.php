@@ -13,9 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Auth::routes();
 
@@ -25,4 +22,9 @@ Route::middleware('auth')->group(function () {
         ->only('index', 'create', 'store', 'destroy', 'edit', 'update');
     Route::put('/equipment/{id}/change-image', [\App\Http\Controllers\EquipmentController::class, 'changeImage'])
         ->name('equipment.change-image');
+});
+
+Route::name('guest.')->group(function () {
+    Route::get('/', [\App\Http\Controllers\GuestController::class, 'index'])->name('index');
+    Route::get('/equipment/{id}/detail', [\App\Http\Controllers\GuestController::class, 'equipmentDetail'])->name('equipment-detail');
 });
