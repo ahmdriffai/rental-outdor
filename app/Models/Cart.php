@@ -12,4 +12,8 @@ class Cart extends Model
     protected $fillable = [
         'owner', 'equipment_id', 'quantity'
     ];
+
+    public function equipment() {
+        return $this->belongsTo(Equipment::class);
+    }
 }

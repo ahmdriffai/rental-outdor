@@ -22,9 +22,18 @@ Route::middleware('auth')->group(function () {
         ->only('index', 'create', 'store', 'destroy', 'edit', 'update');
     Route::put('/equipment/{id}/change-image', [\App\Http\Controllers\EquipmentController::class, 'changeImage'])
         ->name('equipment.change-image');
+
+    Route::resource('carts', \App\Http\Controllers\CartController::class)
+        ->only('store');
+    Route::get('carts/{id}/delete', [\App\Http\Controllers\CartController::class, 'delete'])->name('carts.delete');
+
 });
 
 Route::name('guest.')->group(function () {
     Route::get('/', [\App\Http\Controllers\GuestController::class, 'index'])->name('index');
     Route::get('/equipment/{id}/detail', [\App\Http\Controllers\GuestController::class, 'equipmentDetail'])->name('equipment-detail');
+    Route::get('/carts', [\App\Http\Controllers\GuestController::class, 'listCarts'])->name('carts');
 });
+
+
+

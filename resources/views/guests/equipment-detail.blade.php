@@ -23,7 +23,8 @@
                 <h3 class="text-uppercase fw-bold">Rp. {{ number_format($equipment->price) }}</h3>
             </div>
             <div class="row">
-                {!! Form::open(['url' => '/', 'method' => 'post', 'class' => ['d-flex']]) !!}
+                {!! Form::open(['url' => route('carts.store'), 'method' => 'post', 'class' => ['d-flex']]) !!}
+                {!! Form::hidden('equipment_id', $equipment->id) !!}
                 {!! Form::number('quantity', 0, ['class' => ['form-control'], 'min' => 0]) !!}
                 {!! Form::submit('Tambah Keranjang', ['class' => ['btn', 'btn-danger', 'rounded-0', 'ms-5']]) !!}
                 {!! Form::close() !!}

@@ -35,7 +35,7 @@ class CartServiceTest extends TestCase
         $owner = User::factory()->create()->id;
         $equipment = Equipment::factory()->create();
         $request = new CartAddRequest([
-            'menu_id' => $equipment->id,
+            'equipment_id' => $equipment->id,
             'quantity' => 1,
         ]);
 
