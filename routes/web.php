@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
 
     // Order
     Route::resource('orders', \App\Http\Controllers\OrderController::class)
-        ->only('store');
+        ->only('store', 'index');
 });
 
 Route::name('guest.')->group(function () {

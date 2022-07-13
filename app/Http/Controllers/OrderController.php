@@ -19,9 +19,9 @@ class OrderController extends Controller
     }
 
     public function index(Request $request) {
-        $key = $request->query('key');
-        $orders = $this->orderService->list($key, 10);
-        return view('orders.index', compact('orders'));
+        $key = $request->query('key') ?? '';
+        $data = $this->orderService->list($key, 10);
+        return view('orders.index', compact('data'));
     }
 
     public function store(OrderAddRequest $request)

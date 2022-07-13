@@ -17,3 +17,9 @@
         <i class="fas fa-fw fa-table"></i>
         <span>Kategori</span></a>
 </li>
+
+<li class="nav-item {{ Route::is('orders.*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('orders.index') }}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Pesanan Rental</span></a>
+</li>

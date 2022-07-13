@@ -16,4 +16,8 @@ class Order extends Model
     public function equipment() {
         return $this->belongsToMany(Equipment::class,'equipment_order')->withPivot('quantity');
     }
+
+    public function user() {
+        return $this->belongsTo(User::class, 'owner','id');
+    }
 }

@@ -18,40 +18,30 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-            <div class="table-responsive">
+            <div class="table-responsive mt-5">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                     <tr>
                         <th>No</th>
-                        <th>Nama</th>
-                        <th>Kategori Peralatan</th>
-                        <th>Harga</th>
-                        <th>Gambar</th>
-                        <th>Aksi</th>
+                        <th>Email</th>
+                        <th>Peralatan</th>
+                        <th>Mulai Rental</th>
+                        <th>Sampai</th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($data as $value)
                         <tr>
                             <td>#</td>
-                            <td>{{ $value->name }}</td>
-                            <td>{{ $value->category->name }}</td>
-                            <td>Rp. {{ number_format($value->price) }}</td>
-                            <td class="text-center">
-                                <img src="{{ $value->image_url ?? '' }}" class="img-fluid" width="100px">
+                            <td>{{ $value->user->email }}</td>
+                            <td><strong>
+                                    @foreach($value->equipment as $peralatan)
+                                        {{$peralatan->name}},
+                                    @endforeach
+                                </strong>
                             </td>
-                            <td class="d-flex justify-content-center">
-                                <a class="btn btn-primary btn-sm mx-1" href="{{ route('equipment.edit', $value->id) }}">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                                <div>
-                                    {!! Form::open(['route' => ['equipment.destroy', $value->id], 'method' => 'DELETE']) !!}
-                                    <button type="submit" class="btn btn-sm btn-danger delete-confirm">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                    {!! Form::close() !!}
-                                </div>
-                            </td>
+                            <td>{{ $value->rental_start }}</td>
+                            <td>{{ $value->rental_start }}</td>
                         </tr>
                     @endforeach
                     </tbody>
