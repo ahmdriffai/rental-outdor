@@ -6,6 +6,7 @@ use App\Exceptions\InvariantException;
 use App\Http\Requests\OrderAddRequest;
 use App\Models\Order;
 use App\Services\OrderService;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
 
 class OrderServiceImpl implements OrderService
@@ -60,5 +61,12 @@ class OrderServiceImpl implements OrderService
             throw new InvariantException($exception->getMessage());
         }
         return $order;
+    }
+
+    function list(string $key = '', int $size = 10): LengthAwarePaginator
+    {
+        return Order::where('status', 'like', '%'. $key .'%')
+            ->orderBy('created_at', 'DESC')
+            ->paginate($size);
     }
 }
