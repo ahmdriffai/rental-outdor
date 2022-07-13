@@ -37,7 +37,7 @@
                         </div>
                         <div class="form-group">
                             {!! Form::label('category_id', 'Kategori', ['class' => 'font-weight-bold']) !!}
-                            {!! Form::select('category_id', $category ,null, array('class' => ['form-control', 'select2'], 'placeholder' => 'Pilih Dosen')) !!}
+                            {!! Form::select('category_id', $category ,null, array('class' => ['form-control', 'select2'], 'placeholder' => 'Pilih Kategori')) !!}
                         </div>
 
                         {!! Form::submit('Tambah', ['class' => ['btn', 'btn-primary']]) !!}
