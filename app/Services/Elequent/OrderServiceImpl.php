@@ -11,13 +11,16 @@ use Illuminate\Support\Facades\DB;
 class OrderServiceImpl implements OrderService
 {
 
-    function add(OrderAddRequest $request): Order
+    function add(OrderAddRequest $request, ?int $owner): Order
     {
-        $owner = $request->input('owner');
         $rentalStart = $request->input('rental_start');
         $rentalEnd = $request->input('rental_end');
         $equipmentId = $request->input('equipment_id');
         $quantity = $request->input('quantity');
+
+        if ($owner == null) {
+            throw new InvariantException("Gagal, Belum login");
+        }
 
         try {
             DB::beginTransaction();
@@ -26,10 +29,14 @@ class OrderServiceImpl implements OrderService
                 'owner' => $owner,
                 'rental_start' => $rentalStart,
                 'rental_end' => $rentalEnd,
+                'status' => 'process',
             ]);
 
+            $order->save();
+
+
             for($i = 0; $i < count($equipmentId); $i++){
-                $order->menus()->attach($equipmentId[$i],['quantity' => $quantity[$i]]);
+                $order->equipment()->attach($equipmentId[$i],['quantity' => $quantity[$i]]);
             }
 
             DB::table('carts')->delete();

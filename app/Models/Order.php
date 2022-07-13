@@ -12,4 +12,8 @@ class Order extends Model
     protected $fillable = [
         'owner', 'rental_start', 'rental_end', 'status'
     ];
+
+    public function equipment() {
+        return $this->belongsToMany(Equipment::class,'equipment_order')->withPivot('quantity');
+    }
 }

@@ -20,4 +20,8 @@ class Equipment extends Model
     public function cart() {
         return $this->hasMany(Cart::class);
     }
+
+    public function orders() {
+        return $this->belongsToMany(Order::class)->withPivot('quantity');
+    }
 }

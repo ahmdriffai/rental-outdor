@@ -13,7 +13,7 @@ class OrderAddRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,10 @@ class OrderAddRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'equipment_id' => 'required',
+            'quantity' => 'required',
+            'rental_start' => 'required',
+            'rental_end' => 'required',
         ];
     }
 }

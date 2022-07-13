@@ -13,14 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('orders', function (Blueprint $table) {
+        Schema::create('equipment_order', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('owner');
-            $table->foreign('owner')
-                ->on('users')->references('id');
-            $table->enum('status', ['process', 'paid', 'done']);
-            $table->date('rental_start');
-            $table->date('rental_end');
+            $table->foreignId('equipment_id')->constrained();
+            $table->foreignId('order_id')->constrained();
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('equipment_order');
     }
 };
