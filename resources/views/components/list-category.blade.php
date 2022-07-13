@@ -5,7 +5,7 @@
 <div class="row mt-3 g-3">
     @foreach($category as $value)
     <div class="col-md-2">
-        <a href="#" class="nav-link">
+        <a href="{{ route('guest.equipment-list', $value->id) }}" class="nav-link">
             <div class="card border-0 bg-light shadow card-hover">
                 <div class="card-body text-center">
                     <h6>{{ $value->name }}</h6>

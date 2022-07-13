@@ -44,7 +44,7 @@
                 <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                     <!-- Content -->
                     <h6 class="text-uppercase fw-bold mb-4">
-                        Fakultas K & Sosial Politik
+                       Penyewaan Outdor
                     </h6>
                     <p>
                         Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -59,7 +59,7 @@
                     <h6 class="text-uppercase fw-bold mb-4">
                         Contact
                     </h6>
-                    <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                    <p><i class="fas fa-home me-3"></i> Jl, Kalibebre</p>
                     <p>
                         <i class="fas fa-envelope me-3"></i>
                         info@example.com

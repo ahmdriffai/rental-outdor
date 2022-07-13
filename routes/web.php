@@ -40,6 +40,7 @@ Route::name('guest.')->group(function () {
     Route::get('/', [\App\Http\Controllers\GuestController::class, 'index'])->name('index');
     Route::get('/equipment/{id}/detail', [\App\Http\Controllers\GuestController::class, 'equipmentDetail'])->name('equipment-detail');
     Route::get('/carts', [\App\Http\Controllers\GuestController::class, 'listCarts'])->name('carts');
+    Route::get('/equipment/{categoryId}', [\App\Http\Controllers\GuestController::class, 'listEquipment'])->name('equipment-list');
 });
 
 

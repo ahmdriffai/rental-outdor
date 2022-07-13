@@ -35,4 +35,9 @@ class GuestController extends Controller
         $cartId = Cart::where('owner', Auth::user()->id)->pluck('id');
         return view('guests.cart-list', compact('cartId', 'carts'));
     }
+
+    public function listEquipment($categoryId) {
+        $equipments = Equipment::where('category_id', $categoryId)->paginate(10);
+        return view('guests.equipment-list', compact('equipments'));
+    }
 }

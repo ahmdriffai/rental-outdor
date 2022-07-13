@@ -16,10 +16,10 @@
                             Kategori
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            @php($category = \App\Models\Category::all())
+                            @foreach($category as $value)
+                            <li><a class="dropdown-item" href="{{ route('guest.equipment-list', $value->id) }}">{{ $value->name }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                 </ul>
