@@ -30,6 +30,10 @@ Route::middleware('auth')->group(function () {
     // category
     Route::resource('categories', \App\Http\Controllers\CategoryController::class)
         ->except(['create', 'show']);
+
+    // Order
+    Route::resource('orders', \App\Http\Controllers\OrderController::class)
+        ->only('store');
 });
 
 Route::name('guest.')->group(function () {

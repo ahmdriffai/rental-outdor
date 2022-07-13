@@ -12,7 +12,17 @@
         <div class="col-xl-10">
             <div class="card mb-4">
                 <div class="card-body">
-{{--                    {!! Form::open(array('route' => 'orders.store','method'=>'POST')) !!}--}}
+                    {!! Form::open(array('route' => 'orders.store','method'=>'POST')) !!}
+
+                    <div class="form-group">
+                        {!! Form::label('rental_start', 'Mulai Rental', ['class' => 'font-weight-bold']) !!}
+                        {!! Form::date('rental_start',null ,['class' => 'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        {!! Form::label('rental_end', 'Sampai', ['class' => 'font-weight-bold']) !!}
+                        {!! Form::date('rental_end', null,['class' => 'form-control']) !!}
+                    </div>
+
 
                     <div class="col-lg-12 mb-4 mb-xl-0 mb-3">
                         <label class="form-label" for="basic-default-fullname">Keranjang Rental</label>
@@ -21,7 +31,7 @@
                                 $jumlahBayar = 0;
                             @endphp
                             @foreach($carts as $value)
-                                <input type="hidden" name="menu_id[]" value="{{ $value->equipment->id }}">
+                                <input type="hidden" name="equipment_id[]" value="{{ $value->equipment->id }}">
                                 <input type="hidden" name="quantity[]" value="{{ $value->quantity }}">
                                 @php
                                     $jumlah = $value->quantity * $value->equipment->price;
@@ -53,11 +63,8 @@
                         </ul>
                     </div>
 
-
-
-
                     <button type="submit" class="btn btn-primary mt-3">Checkout</button>
-{{--                    {!! Form::close() !!}--}}
+                    {!! Form::close() !!}
                 </div>
             </div>
         </div>

@@ -27,6 +27,7 @@
 @include('components.navbar')
 
 <div class="container">
+    @include('layouts.components.validation')
     @yield('content')
 </div>
 
