@@ -27,6 +27,9 @@ Route::middleware('auth')->group(function () {
         ->only('store');
     Route::get('carts/{id}/delete', [\App\Http\Controllers\CartController::class, 'delete'])->name('carts.delete');
 
+    // category
+    Route::resource('categories', \App\Http\Controllers\CategoryController::class)
+        ->except(['create', 'show']);
 });
 
 Route::name('guest.')->group(function () {

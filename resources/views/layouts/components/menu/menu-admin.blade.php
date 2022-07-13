@@ -8,6 +8,12 @@
 <!-- Nav Item - Tables -->
 <li class="nav-item {{ Route::is('equipment.*') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('equipment.index') }}">
-        <i class="fas fa-fw fa-table"></i>
+        <i class="fas fa-fw fa-edit"></i>
         <span>Peralatan</span></a>
+</li>
+
+<li class="nav-item {{ Route::is('categories.*') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('categories.index') }}">
+        <i class="fas fa-fw fa-table"></i>
+        <span>Kategori</span></a>
 </li>

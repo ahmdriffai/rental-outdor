@@ -197,6 +197,7 @@ return [
         App\Providers\UserServiceProvider::class,
         App\Providers\EquipmentServiceProvider::class,
         App\Providers\CartServiceProvider::class,
+        App\Providers\CategoryServiceProvider::class,
 
         // Spatie
         Spatie\Permission\PermissionServiceProvider::class,
