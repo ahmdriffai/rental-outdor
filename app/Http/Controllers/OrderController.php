@@ -29,7 +29,7 @@ class OrderController extends Controller
         $user = Auth::user();
         try {
             $this->orderService->add($request, $user->id);
-            return redirect()->route('guest.index')->with('success', 'Berhasil Membuat Pesanan Rental');
+            return redirect()->route('guest.index')->with('success', 'Berhasil Membuat Pesanan Rental, Untuk pembayaran silahkan dibayar pada saat pengambilan barang');
         }catch (InvariantException $exception){
             return redirect()->back()->with('error', $exception->getMessage());
         }
